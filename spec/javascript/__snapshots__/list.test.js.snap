@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter 1`] = `
+<div>
+  <h1>
+    Sprint Board:
+  </h1>
+  <div
+    class="controls"
+  >
+    <button>
+      Clear table
+    </button>
+    <button>
+      Add record
+    </button>
+    <input
+      type="text"
+      value=""
+    />
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          Name:
+        </td>
+        <td>
+          Points:
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Jack
+        </td>
+        <td>
+          12
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Max
+        </td>
+        <td>
+          10
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Leo
+        </td>
+        <td>
+          8
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          Team Points:
+        </td>
+        <td>
+          30
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Top Performer:
+        </td>
+        <td>
+          Jack
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;

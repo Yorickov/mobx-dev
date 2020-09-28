@@ -1,9 +1,8 @@
 import React from 'react';
-import Counter from '../../app/javascript/components/Counter';
-import counterStore from '../../app/javascript/stores/counterStore';
+import CounterApp from '../../app/javascript/counter/CounterApp';
 
 it('Counter', () => {
-  const wrapper = mount(<Counter store={counterStore} />);
+  const wrapper = mount(<CounterApp />);
   expect(wrapper.render()).toMatchSnapshot();
 
   const dec = wrapper.find('button[data-test="decrease"]');
