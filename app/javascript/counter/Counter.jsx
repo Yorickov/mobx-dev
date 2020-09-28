@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 
 const Counter = observer((props) => {
   const { age, nickname, decrease, increase } = props.store;
+
   return (
     <div>
       <h1>{nickname}</h1>

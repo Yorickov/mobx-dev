@@ -2,9 +2,8 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import Row from './Row';
 
-const Table = observer((props) => {
-  const { filteredDevs, totalSum, topPerformer } = props.store;
-
+const Table = observer(({ store }) => {
+  const { filteredDevs, totalSum, topPerformer } = store;
   return (
     <table>
       <thead>

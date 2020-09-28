@@ -10,13 +10,11 @@ const Controls = observer((props) => {
     addDeveloper({ name, points });
   };
 
-  const filterDevs = ({ target: { value } }) => updateFilter(value);
-
   return (
     <div className="controls">
       <button onClick={clearList}>Clear table</button>
       <button onClick={handleDeveloper}>Add record</button>
-      <input type="text" value={filter} onChange={filterDevs}/>
+      <input type="text" value={filter} onChange={updateFilter}/>
     </div>
   );
 });

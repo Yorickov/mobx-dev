@@ -1,49 +1,53 @@
-import { observable, computed, action } from 'mobx';
+import { observable, computed, action, decorate } from 'mobx';
 
 class TableStore {
-  @observable devsList = [
+  devsList = [
     { name: 'Jack', points: 12 },
     { name: 'Max', points: 10 },
     { name: 'Leo', points: 8 },
   ];
 
-  @observable filter = '';
+  filter = '';
 
-  @computed get totalSum() {
+  get totalSum() {
     return this.devsList.reduce((acc, { points }) => acc + points, 0);
   }
 
-  @computed get topPerformer() {
+  get topPerformer() {
     const maxPoints = Math.max(...this.devsList.map(({ points }) => points));
     return this.devsList.find(({ points }) => points === maxPoints);
   }
 
-  @computed get filteredDevs() {
+  get filteredDevs() {
     const pattern = new RegExp(this.filter, 'i');
-    return this.devsList.filter(({ name }) => !this.filter || pattern.test(name));
+    return this.devsList.filter(({ name }) => pattern.test(name));
   }
 
-  @action clearList = () => {
+  clearList = () => {
     this.devsList = [];
   };
 
-  @action addDeveloper = (dev) => {
+  addDeveloper = (dev) => {
     this.devsList.push(dev);
   };
 
-  @action updateFilter = (value) => {
+  updateFilter = (e) => {
+    const { target: { value } } = e;
     this.filter = value;
   };
 }
 
-// decorate(TableStore, {
-//   devsList: observable,
-//   totalSum: computed,
-//   topPerformer: computed,
-//   clearList: action,
-//   addDeveloper: action,
-//   filter: observable,
-//   updateFilter: action,
-// });
+decorate(TableStore, {
+  devsList: observable,
+  filter: observable,
+
+  totalSum: computed,
+  topPerformer: computed,
+  filteredDevs: computed,
+
+  clearList: action,
+  addDeveloper: action,
+  updateFilter: action,
+});
 
 export default new TableStore();
